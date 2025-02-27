@@ -1,0 +1,221 @@
+@font-face {
+  font-family: "Digital";
+  src: url("../digital-7.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+input {
+  all: unset;
+  display: inline-block;
+  width: 14vw;
+  text-align: right;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 1,
+    "wght" 400,
+    "GRAD" -25,
+    "opsz" 24;
+  color: white;
+  width: 100%;
+}
+
+#logos.hidden {
+  transform: scale(0);
+  opacity: 0;
+}
+
+#logos {
+  width: 40vw;
+  height: 40vw;
+  margin-left: -20vw;
+  margin-top: -20vw;
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.5s ease-out;
+}
+
+.logo {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  width: 350px;
+  height: 260px;
+  transition: opacity 0.4s ease-in-out;
+}
+.suputnyk {
+  position: absolute;
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  width: 400px;
+  height: auto;
+  transition: opacity 0.4s ease-in-out;
+}
+.logo.active {
+  opacity: 1;
+}
+.logo > img {
+  width: 100%;
+  height: 100%;
+}
+
+#timer.hidden {
+  opacity: 0;
+}
+
+#timer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: all 0.5s ease-out;
+}
+
+#clock {
+  font: 15vw "Digital";
+  color: #ffffff;
+}
+
+#clock .digit {
+  display: inline-block;
+  width: 7vw;
+  text-align: right;
+}
+
+#background {
+  background-image: url("../img/timer-bg-no-logo.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  margin-left: -50vw;
+  margin-top: -50vh;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.logo-icon1 {
+  position: absolute;
+  top: 36%;
+  left: 4%;
+  width: 15%;
+  height: auto;
+  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-icon2 {
+  position: absolute;
+  top: 36%;
+  left: 82%;
+  width: 15%;
+  height: auto;
+  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#background.animate {
+  animation: pulse 5s ease-in-out infinite;
+}
+
+#background > div {
+  position: absolute;
+  opacity: 0.5;
+}
+
+#tools {
+  top: 63vh;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin: 2vw 0;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#tools.hidden {
+  opacity: 0;
+}
+
+#start,
+#restart,
+#settings {
+  width: 2vw;
+  height: 2vw;
+  margin: 0.5vw;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#start .pause {
+  display: none;
+}
+
+#start.started .play {
+  display: none;
+}
+
+#start.started .pause {
+  display: block;
+}
+
+#type {
+  margin: 0 0.5vw;
+  font: 1vw "Roboto";
+  display: flex;
+  align-items: center;
+}
+
+#type .option {
+  color: #999;
+  cursor: pointer;
+  margin: 0 0.5vw;
+  align-items: center;
+}
+
+#type .option.active {
+  color: #ffffff;
+  font-weight: bold;
+}
